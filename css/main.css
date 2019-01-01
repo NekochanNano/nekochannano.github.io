@@ -1,0 +1,40 @@
+t {
+    /* テキスト */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin-top: 56px;
+}
+
+#navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+a.anchor {
+    top: -56px;
+    position: relative;
+    visibility: hidden;
+}
+
+div.page {
+    height: 750px;
+    padding: 30px;
+}
+
+#page1 {
+    background-color: #aaf;
+}
+
+#page2 {
+    background-color: #faa;
+}
+
+#page3 {
+    background-color: #afa;
+}
