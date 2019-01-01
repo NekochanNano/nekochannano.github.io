@@ -3,9 +3,10 @@
     <head>
         <title>NekochanNano! CTF Team</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/lang_ja.css">
+        <link rel="stylesheet" href="css/lang_en.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <link id="lang_control" rel="stylesheet" href="css/lang_en.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/main.js"></script>
     </head>
@@ -25,7 +26,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">
+                        <a class="nav-link" href="#members">
                             <i class="fa fa-info-circle"></i>
                             <t en>Members</t>
                             <t ja>メンバーズ</t>
@@ -58,11 +59,48 @@
         </div>
         <div id="page2" class="page">
             <div class="container">
-                <a id="about" class="anchor"></a>
+                <a id="members" class="anchor"></a>
                 <h2>
                     <t en>Team Members</t>
                     <t ja>メンバーズ</t>
                 </h2>
+
+                <div id="members_list">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                              <th scope="col"><i class="fa fa-at"></i> <t en>Handle</t><t ja>ハンドル</t></th>
+                              <th scope="col"><i class="fa fa-user-alt"></i> <t en>Real Name</t><t ja>本名</t></th>
+                              <th scope="col"><i class="fa fa-globe"></i> <t en>Website</t><t ja>ホームページ</t></th>
+                              <th scope="col"><i class="fa fa-twitter"></i> <t en>Twitter</t><t ja>ツイッター</t></th>
+                              <th scope="col"><i class="fa fa-github"></i> Github</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <td>sz4rny</td>
+                                <td><t en>Tsubasa Umeuchi</t><t ja>梅内つばさ</t></td>
+                                <td><a target="_blank" href="https://szarny.github.io">https://szarny.github.io</a></td>
+                                <td><a target="_blank" href="https://twitter.com/Sz4rny">https://twitter.com/Sz4rny</a></td>
+                                <td><a target="_blank" href="https://github.com/sz4rny">https://github.com/sz4rny</a></td>
+                            </tr>
+                            <tr>
+                                <td>tokina</td>
+                                <td></td>
+                                <td><a target="_blank" href="https://d3npä.hackers.moe">http://tokina.hatenadiary.jp</a></td>
+                                <td><a target="_blank" href="https://twitter.com/_tokina2">https://twitter.com/_tokina23</a></td>
+                                <td><a target="_blank" href="https://github.com/himitu23">https://github.com/himitu23</a></td>
+                            </tr>
+                            <tr>
+                                <td>d3npä</td>
+                                <td><t en>Echo Wilson</t><t ja>ウィルソン響</t></td>
+                                <td><a target="_blank" href="https://d3npä.hackers.moe">https://d3npä.hackers.moe</a></td>
+                                <td><a target="_blank" href="https://twitter.com/ousanko">https://twitter.com/ousanko</a></td>
+                                <td><a target="_blank" href="https://github.com/d3npa">https://github.com/d3npa</a></td>
+                            </tr>
+                          </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div id="page3" class="page">
