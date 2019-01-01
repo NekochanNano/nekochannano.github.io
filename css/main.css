@@ -38,3 +38,18 @@ div.page {
 #page3 {
     background-color: #afa;
 }
+
+#footer {
+    background-color: #000;
+    color: #eee;
+    text-align: center;
+    padding: 5px;
+}
+
+#footer a {
+    color: #eee;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
