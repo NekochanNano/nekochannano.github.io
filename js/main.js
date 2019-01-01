@@ -3,16 +3,13 @@ function changeLanguage() {
     if (currentLanguage == "en") {
         document.getElementById("lang_toggle").innerHTML = "<i class=\"fa fa-globe-americas\"></i> View English version";
         document.getElementById("lang_toggle").setAttribute("lang", "ja");
-        document.getElementById("lang_control").setAttribute("href", "css/lang_ja.css");
+        document.styleSheets[0].disabled = false;
+        document.styleSheets[1].disabled = true;
     }
     else {
         document.getElementById("lang_toggle").innerHTML = "<i class=\"fa fa-globe-asia\"></i> 日本語版を見る";
         document.getElementById("lang_toggle").setAttribute("lang", "en");
-        document.getElementById("lang_control").setAttribute("href", "css/lang_en.css");
+        document.styleSheets[0].disabled = true;
+        document.styleSheets[1].disabled = false;
     }
-}
-
-window.onload = function() {
-    changeLanguage();
-    changeLanguage();
 }
