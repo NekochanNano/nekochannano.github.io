@@ -82,10 +82,10 @@
                           </thead>
                           <tbody id="members_table">
                               <script>
-                              $.get("/templates/components/member.handlebars", dataTemplate => {
+                              $.get("templates/components/member.handlebars", dataTemplate => {
                                   var template = Handlebars.compile(dataTemplate);
                                   var membersData = [];
-                                  $.get("/data/members.txt", dataMembers => {
+                                  $.get("data/members.txt", dataMembers => {
                                       var members = dataMembers.split("\n");
                                       members.forEach(member => {
                                           var info = member.split("|");
