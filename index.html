@@ -82,7 +82,7 @@
                           </thead>
                           <tbody id="members_table">
                               <script>
-                              $.get("templates/components/member.handlebars", dataTemplate => {
+                              $.get("templates/member.handlebars", dataTemplate => {
                                   var template = Handlebars.compile(dataTemplate);
                                   var membersData = [];
                                   $.get("data/members.txt", dataMembers => {
