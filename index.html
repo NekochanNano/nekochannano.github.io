@@ -3,22 +3,22 @@
     <head>
         <title>NekochanNano! CTF Team</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/lang_ja.css">
-        <link rel="stylesheet" href="css/lang_en.css">
+        <link rel="stylesheet" href="res/css/lang_ja.css">
+        <link rel="stylesheet" href="res/css/lang_en.css">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
 
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="res/css/main.css">
+        <script src="res/js/main.js"></script>
     </head>
     <body>
         <nav id="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="assets/nekochan.png" width="30" height="30" class="align-top" alt="">
+                    <img src="res/assets/nekochan.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Nekochan Nano!
                 </a>
                 <ul class="navbar-nav">
@@ -82,10 +82,10 @@
                           </thead>
                           <tbody id="members_table">
                               <script>
-                              $.get("templates/member.handlebars", dataTemplate => {
+                              $.get("res/templates/member.handlebars", dataTemplate => {
                                   var template = Handlebars.compile(dataTemplate);
                                   var membersData = [];
-                                  $.get("data/members.txt", dataMembers => {
+                                  $.get("res/data/members.txt", dataMembers => {
                                       var members = dataMembers.split("\n");
                                       members.forEach(member => {
                                           var info = member.split("|");
