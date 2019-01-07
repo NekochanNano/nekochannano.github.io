@@ -36,11 +36,12 @@ a.anchor {
 }
 
 div.page {
-    height: 750px;
+    min-height: 400px;
     padding: 30px;
 }
 
 #page1 {
+    display: none;
     background-color: #e8e8e8;
 }
 
