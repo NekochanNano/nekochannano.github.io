@@ -1,0 +1,4 @@
+#git ignore patterns
+
+#temporary files
+._*
