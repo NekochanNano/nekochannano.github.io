@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="nav-item"> -->
-                        <a class="nav-link" href="#members">
+                        <a class="nav-link" href="./index.html">
                             <i class="fa fa-user-alt"></i>
                             <t en>Members</t>
                             <t ja>メンバーズ</t>
@@ -44,7 +44,7 @@
                         </a>
                     <li> -->
                     <li class="nav-item">
-                    <a class="nav-link" href="./JoinedGames.html"> <!-- added by tokina --> 
+                    <a class="nav-link" href="#ctf"> <!-- added by tokina -->
                             <i class="fa fa-user-alt"></i>
                             <t en>JoinedCTF&WriteUp</t>
                             <t ja>参加CTF&WriteUp</t>
@@ -72,43 +72,43 @@
             <div class="container">
                 <a id="members" class="anchor"></a>
                 <h2>
-                    <t en>Team Members</t>
-                    <t ja>メンバーズ</t>
+                    <t en>CTF Event List</t>
+                    <t ja>参加CTFイベントリスト</t>
                 </h2>
 
-                <div id="members_list">
+                <div id="members_list"> <!-- reuse CSS style -->
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                              <th scope="col"><i class="fa fa-hashtag"></i> <t en>Handle</t><t ja>ハンドル</t></th>
-                              <th scope="col"><i class="fa fa-user"></i> <t en>Real Name</t><t ja>本名</t></th>
-                              <th scope="col"><i class="fa fa-globe"></i> <t en>Website</t><t ja>ホームページ</t></th>
-                              <th scope="col"><i class="fa fa-twitter"></i> <t en>Twitter</t><t ja>ツイッター</t></th>
-                              <th scope="col"><i class="fa fa-github"></i> Github</th>
+                              <th scope="col"><i class="fa fa-calendar"></i> <t en>Year</t><t ja>Year</t></th>
+                              <th scope="col"><i class="fa fa-flag"></i> <t en>CTF</t><t ja>CTF</t></th>
+                              <th scope="col"><i class="fa fa-globe"></i> <t en>SiteURL</t><t ja>サイトリンク</t></th> 
+                              <th scope="col"><i class="fa fa-bookmark"></i> <t en>WriteUp</t><t ja>ライトアップ</t></th>
+                              <!-- <th scope="col"><i class="fa fa-github"></i> Github</th> -->
                               <!-- <th scope="col"><i class="fa fa-asterisk"></i> <t en>Details</t><t ja>詳しい情報</t></th> -->
                             </tr>
                           </thead>
-                          <tbody id="members_table">
+                          <tbody id="events_table">
                               <script>
-                              $.get("res/templates/member.handlebars", dataTemplate => {
+                              $.get("res/templates/joinedctf.handlebars", dataTemplate => {
                                   var template = Handlebars.compile(dataTemplate);
-                                  var membersData = [];
-                                  $.get("res/data/members.txt", dataMembers => {
-                                      var members = dataMembers.split("\n");
-                                      members.forEach(member => {
-                                          var info = member.split("|");
-                                          if (info.length == 6) {
-                                              membersData.push({
+                                  var eventList = [];
+                                  $.get("res/data/CTFevent.txt", CTFevents => {
+                                      var events = CTFevents.split("\n");
+                                      events.forEach(event => {
+                                          var info = event.split("|");
+                                          if (info.length == 5) {
+                                              eventList.push({
                                                   "alias" : info[0],
-                                                  "name_en" : info[1],
-                                                  "name_ja" : info[2],
+                                                  "ctf_en" : info[1],
+                                                  "ctf_ja" : info[2],
                                                   "links_website" : info[3],
-                                                  "links_twitter" : info[4],
-                                                  "links_github" : info[5]
+                                                  "links_writeup" : info[4]
                                               });
+                                            console.info(eventList); //debug info
                                           } // End of if(info)
                                       });
-                                      $("#members_table").html(template({"members_data" : membersData}));
+                                      $("#events_table").html(template({"members_data" : eventList}));
                                       // ↑ 上の文でこのスクリプト・タグが上書きされる
                                   });
                               });

@@ -1,0 +1,2 @@
+Constancy|Google CTF|Google CTF|https://capturetheflag.withgoogle.com/|--
+2019|ksnctf 2019|ksnctf 2019|https://ksnctf.sweetduet.info|ksnctf2019
