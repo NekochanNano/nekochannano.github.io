@@ -47,26 +47,26 @@ div.page {
     background-color: #e8e8e8;
 }
 
-#page2 {
+#page2, #page3, #page4 {
     /* メンバーズ一覧 */
     background-color: #ececec;
     height: 750px;
 }
 
-#page3 {
+#page5 {
     /* コンタクト情報 */
     display: none;
     background-color: #e8e8e8;
 }
 
-#page2 #members_list {
+.list_table {
     background-color: #f8f8f8;
     border-style: solid;
     border-width: 1px;
     border-color: black;
 }
 
-#page2 #members_list > table {
+.list_table > table {
     margin-bottom: 0;
 }
 

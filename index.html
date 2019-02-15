@@ -44,10 +44,10 @@
                         </a>
                     <li> -->
                     <li class="nav-item">
-                    <a class="nav-link" href="./JoinedGames.html"> <!-- added by tokina --> 
-                            <i class="fa fa-user-alt"></i>
-                            <t en>JoinedCTF&WriteUp</t>
-                            <t ja>参加CTF&WriteUp</t>
+                        <a class="nav-link" href="#writeups">
+                            <i class="fa fa-book"></i>
+                            <t en>Writeups</t>
+                            <t ja>ライトアップ</t>
                         </a>
                     <li>
                     <li class="nav-item">
@@ -72,11 +72,12 @@
             <div class="container">
                 <a id="members" class="anchor"></a>
                 <h2>
+                    <i class="fa fa-user-alt"></i>
                     <t en>Team Members</t>
                     <t ja>メンバーズ</t>
                 </h2>
 
-                <div id="members_list">
+                <div id="members_list" class="list_table">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -90,7 +91,7 @@
                           </thead>
                           <tbody id="members_table">
                               <script>
-                              $.get("res/templates/member.handlebars", dataTemplate => {
+                              $.get("res/templates/member_entry.handlebars", dataTemplate => {
                                   var template = Handlebars.compile(dataTemplate);
                                   var membersData = [];
                                   $.get("res/data/members.txt", dataMembers => {
@@ -119,6 +120,107 @@
             </div>
         </div>
         <div id="page3" class="page">
+            <div class="container">
+                <a id="ctfs" class="anchor"></a>
+                <h2>
+                    <i class="fa fa-book"></i>
+                    <t en>CTF Attended</t>
+                    <t ja>参加CTF</t>
+                </h2>
+
+                <div id="ctfs_list" class="list_table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"><i class="fa fa-calendar"></i> <t en>Year</t><t ja>Year</t></th>
+                                <th scope="col"><i class="fa fa-flag"></i> <t en>CTF</t><t ja>CTF</t></th>
+                                <th scope="col"><i class="fa fa-globe"></i> <t en>Site URL</t><t ja>サイトリンク</t></th>
+                                <th scope="col"><i class="fa fa-user-alt"></i> <t en>Participants</t><t ja>参加者</t></th>
+                            </tr>
+                          </thead>
+                          <tbody id="ctfs_table">
+                              <script>
+                              $.get("res/templates/ctf_entry.handlebars", dataTemplate => {
+                                  var template = Handlebars.compile(dataTemplate);
+                                  var eventList = [];
+                                  $.get("res/data/ctfs.txt", dataCTFs => {
+                                      var events = dataCTFs.split("\n");
+                                      events.forEach(event => {
+                                          var info = event.split("|");
+                                          if (info.length == 5) {
+                                              eventList.push({
+                                                  "year" : info[0],
+                                                  "ctf_en" : info[1],
+                                                  "ctf_ja" : info[2],
+                                                  "links_website" : info[3],
+                                                  "participants" : info[4].split(",").join(", ")
+                                              });
+                                            console.info(eventList); //debug info
+                                          } // End of if(info)
+                                      });
+                                      $("#ctfs_table").html(template({"ctf_data" : eventList}));
+                                      // ↑ 上の文でこのスクリプト・タグが上書きされる
+                                  });
+                              });
+                              </script>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="page4" class="page">
+            <div class="container">
+                <a id="writeups" class="anchor"></a>
+                <h2>
+                    <i class="fa fa-book"></i>
+                    <t en>CTF Writeups</t>
+                    <t ja>参加CTFライトアップ</t>
+                </h2>
+
+                <div id="writeups_list" class="list_table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"><i class="fa fa-calendar"></i> <t en>Year</t><t ja>Year</t></th>
+                                <th scope="col"><i class="fa fa-flag"></i> <t en>CTF</t><t ja>CTF</t></th>
+                                <th scope="col"><i class="fa fa-globe"></i> <t en>Site URL</t><t ja>サイトリンク</t></th>
+                                <th scope="col"><i class="fa fa-user-alt"></i> <t en>Author</t><t ja>筆者</t></th>
+                                <th scope="col"><i class="fa fa-bookmark"></i> <t en>Writeup</t><t ja>ライトアップ</t></th>
+                            </tr>
+                          </thead>
+                          <tbody id="writeups_table">
+                              <script>
+                              $.get("res/templates/writeup_entry.handlebars", dataTemplate => {
+                                  var template = Handlebars.compile(dataTemplate);
+                                  var eventList = [];
+                                  $.get("res/data/writeups.txt", dataWriteups => {
+                                      var events = dataWriteups.split("\n");
+                                      events.forEach(event => {
+                                          var info = event.split("|");
+                                          if (info.length == 7) {
+                                              eventList.push({
+                                                  "year" : info[0],
+                                                  "ctf_en" : info[1],
+                                                  "ctf_ja" : info[2],
+                                                  "links_website" : info[3],
+                                                  "author" : info[4],
+                                                  "links_writeup" : info[5],
+                                                  "title" : info[6]
+                                              });
+                                            console.info(eventList); //debug info
+                                          } // End of if(info)
+                                      });
+                                      $("#writeups_table").html(template({"writeup_data" : eventList}));
+                                      // ↑ 上の文でこのスクリプト・タグが上書きされる
+                                  });
+                              });
+                              </script>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="page5" class="page">
             <div class="container">
                 <a id="contact" class="anchor"></a>
                 <h2>
