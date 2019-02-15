@@ -91,15 +91,15 @@
                           </thead>
                           <tbody id="members_table">
                               <script>
-                              $.get("res/templates/member_entry.handlebars", dataTemplate => {
-                                  var template = Handlebars.compile(dataTemplate);
-                                  var membersData = [];
-                                  $.get("res/data/members.txt", dataMembers => {
-                                      var members = dataMembers.split("\n");
-                                      members.forEach(member => {
-                                          var info = member.split("|");
+                              $.get("res/templates/member_entry.handlebars", data => {
+                                  var template = Handlebars.compile(data);
+                                  var arrayData = [];
+                                  $.get("res/data/members.txt", data => {
+                                      var elements = data.split("\n");
+                                      elements.forEach(element => {
+                                          var info = element.split("|");
                                           if (info.length == 6) {
-                                              membersData.push({
+                                              arrayData.push({
                                                   "alias" : info[0],
                                                   "name_en" : info[1],
                                                   "name_ja" : info[2],
@@ -109,7 +109,7 @@
                                               });
                                           } // End of if(info)
                                       });
-                                      $("#members_table").html(template({"members_data" : membersData}));
+                                      $("#members_table").html(template({"members_data" : arrayData}));
                                       // ↑ 上の文でこのスクリプト・タグが上書きされる
                                   });
                               });
@@ -140,25 +140,25 @@
                           </thead>
                           <tbody id="ctfs_table">
                               <script>
-                              $.get("res/templates/ctf_entry.handlebars", dataTemplate => {
-                                  var template = Handlebars.compile(dataTemplate);
-                                  var eventList = [];
-                                  $.get("res/data/ctfs.txt", dataCTFs => {
-                                      var events = dataCTFs.split("\n");
-                                      events.forEach(event => {
-                                          var info = event.split("|");
+                              $.get("res/templates/ctf_entry.handlebars", data => {
+                                  var template = Handlebars.compile(data);
+                                  var arrayData = [];
+                                  $.get("res/data/ctfs.txt", data => {
+                                      var elements = data.split("\n");
+                                      elements.forEach(element => {
+                                          var info = element.split("|");
                                           if (info.length == 5) {
-                                              eventList.push({
+                                              arrayData.push({
                                                   "year" : info[0],
                                                   "ctf_en" : info[1],
                                                   "ctf_ja" : info[2],
                                                   "links_website" : info[3],
                                                   "participants" : info[4].split(",").join(", ")
                                               });
-                                            console.info(eventList); //debug info
+                                            console.info(arrayData); //debug info
                                           } // End of if(info)
                                       });
-                                      $("#ctfs_table").html(template({"ctf_data" : eventList}));
+                                      $("#ctfs_table").html(template({"ctf_data" : arrayData}));
                                       // ↑ 上の文でこのスクリプト・タグが上書きされる
                                   });
                               });
@@ -190,15 +190,15 @@
                           </thead>
                           <tbody id="writeups_table">
                               <script>
-                              $.get("res/templates/writeup_entry.handlebars", dataTemplate => {
-                                  var template = Handlebars.compile(dataTemplate);
-                                  var eventList = [];
-                                  $.get("res/data/writeups.txt", dataWriteups => {
-                                      var events = dataWriteups.split("\n");
-                                      events.forEach(event => {
-                                          var info = event.split("|");
+                              $.get("res/templates/writeup_entry.handlebars", data => {
+                                  var template = Handlebars.compile(data);
+                                  var arrayData = [];
+                                  $.get("res/data/writeups.txt", data => {
+                                      var elements = data.split("\n");
+                                      elements.forEach(element => {
+                                          var info = element.split("|");
                                           if (info.length == 7) {
-                                              eventList.push({
+                                              arrayData.push({
                                                   "year" : info[0],
                                                   "ctf_en" : info[1],
                                                   "ctf_ja" : info[2],
@@ -207,10 +207,10 @@
                                                   "links_writeup" : info[5],
                                                   "title" : info[6]
                                               });
-                                            console.info(eventList); //debug info
+                                            console.info(arrayData); //debug info
                                           } // End of if(info)
                                       });
-                                      $("#writeups_table").html(template({"writeup_data" : eventList}));
+                                      $("#writeups_table").html(template({"writeup_data" : arrayData}));
                                       // ↑ 上の文でこのスクリプト・タグが上書きされる
                                   });
                               });
