@@ -37,25 +37,29 @@ a.anchor {
 }
 
 div.page {
-    min-height: 400px;
+    min-height: 500px;
     padding: 30px;
+    /* height: 0px; */
+}
+
+div.page:nth-child(odd) {
+    background-color: #e8e8e8;
+}
+div.page:nth-child(even) {
+    background-color: #ececec;
 }
 
 #page1 {
     /* トップページ */
     display: none;
-    background-color: #e8e8e8;
 }
 
 #page2, #page3, #page4 {
-    background-color: #ececec;
-    height: 750px;
 }
 
 #page5 {
     /* コンタクト情報 */
     display: none;
-    background-color: #e8e8e8;
 }
 
 .list_table {
