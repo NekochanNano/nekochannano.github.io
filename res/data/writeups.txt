@@ -1,1 +1,2 @@
 2019|KōsenCTF 2019|高専CTF 2019|https://kosenctf.com|d3npä|https://d3npä.hackers.moe/blog/kosenctf-pwn-ziplist-writeup/|🇯🇵 KōsenCTF 之 [Pwn 350]ziplist 解法
+2019|KōsenCTF 2019|高専CTF 2019|https://kosenctf.com|satto|https://satto.hatenadiary.com/entry/InterKosenCTF2019|🇯🇵 InterKosenCTF 2019 Write-up
