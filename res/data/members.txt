@@ -1,7 +1,8 @@
 Szarny|Tsubasa Umeuchi|梅内翼|https://szarny.github.io|Sz4rny|szarny
-himitu|||http://tokina.hatenadiary.jp|_tokina23|himitu23
-d3npä|Echo Wilson|ウィルソン響|https://d3npä.hackers.moe|ousanko|d3npa
+Tokina(Himitu)|||http://tokina.hatenadiary.jp|_tokina23|himitu23
+d3npä|Hibiki Wilson|ウィルソン響|https://d3npä.hackers.moe|ousanko|d3npa
 ohirangosta|Shūji Ōhiran|大平修慈|https://ohirangosta.github.io|o_hi_rangosta|ohirangosta
 Columbine|Hiroki Murakami|むらかみ ひろき||ksusec_hiro|teatime13
 shibaken|Kenya Shibasaki|柴崎けんや||shiba_x86ken|shiba-x86ken
 hoge0|Takato Nakachi|仲地駿人||hogezero|hogezero
+satto||||satto1237|satto1237

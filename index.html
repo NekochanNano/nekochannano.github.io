@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="res/css/lang_ja.css">
         <link rel="stylesheet" href="res/css/lang_en.css">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+        <link rel="stylesheet" href="res/css/bootstrap.min.css">
+        <link rel="stylesheet" href="res/css/font-awesome.all.css">
+        <script src="res/js/jquery.min.js"></script>
+        <script src="res/js/handlebars.min.js"></script>
 
         <link rel="stylesheet" href="res/css/main.css">
         <script src="res/js/main.js"></script>
@@ -35,7 +35,7 @@
                             <t en>Members</t>
                             <t ja>メンバーズ</t>
                         </a>
-                    <li>
+                    </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#contact">
                             <i class="fa fa-at"></i>
@@ -43,6 +43,20 @@
                             <t ja>コンタクト</t>
                         </a>
                     <li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ctfs">
+                            <i class="fa fa-flag"></i>
+                            <t en>CTF Attended</t>
+                            <t ja>参加CTF</t>
+                        </a>
+                    <li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#writeups">
+                            <i class="fa fa-book"></i>
+                            <t en>Writeups</t>
+                            <t ja>ライトアップ</t>
+                        </a>
+                    <li>
                     <li class="nav-item">
                         <a id="lang_toggle" lang="en" class="nav-link" href="javascript:changeLanguage();">
                             <t en><i class="fa fa-globe-asia"></i> 日本語版を見る</t>
@@ -65,11 +79,12 @@
             <div class="container">
                 <a id="members" class="anchor"></a>
                 <h2>
+                    <i class="fa fa-user-alt"></i>
                     <t en>Team Members</t>
                     <t ja>メンバーズ</t>
                 </h2>
 
-                <div id="members_list">
+                <div id="members_list" class="list_table">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -83,15 +98,15 @@
                           </thead>
                           <tbody id="members_table">
                               <script>
-                              $.get("res/templates/member.handlebars", dataTemplate => {
-                                  var template = Handlebars.compile(dataTemplate);
-                                  var membersData = [];
-                                  $.get("res/data/members.txt", dataMembers => {
-                                      var members = dataMembers.split("\n");
-                                      members.forEach(member => {
-                                          var info = member.split("|");
+                              $.get("res/templates/member_entry.handlebars", data => {
+                                  var template = Handlebars.compile(data);
+                                  var arrayData = [];
+                                  $.get("res/data/members.txt", data => {
+                                      var elements = data.split("\n");
+                                      elements.forEach(element => {
+                                          var info = element.split("|");
                                           if (info.length == 6) {
-                                              membersData.push({
+                                              arrayData.push({
                                                   "alias" : info[0],
                                                   "name_en" : info[1],
                                                   "name_ja" : info[2],
@@ -101,7 +116,7 @@
                                               });
                                           } // End of if(info)
                                       });
-                                      $("#members_table").html(template({"members_data" : membersData}));
+                                      $("#members_table").html(template({"members_data" : arrayData}));
                                       // ↑ 上の文でこのスクリプト・タグが上書きされる
                                   });
                               });
@@ -112,6 +127,107 @@
             </div>
         </div>
         <div id="page3" class="page">
+            <div class="container">
+                <a id="ctfs" class="anchor"></a>
+                <h2>
+                    <i class="fa fa-flag"></i>
+                    <t en>CTFs Attended</t>
+                    <t ja>参加CTF</t>
+                </h2>
+
+                <div id="ctfs_list" class="list_table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"><i class="fa fa-calendar"></i> <t en>Year</t><t ja>Year</t></th>
+                                <th scope="col"><i class="fa fa-flag"></i> <t en>CTF</t><t ja>CTF</t></th>
+                                <th scope="col"><i class="fa fa-globe"></i> <t en>Site URL</t><t ja>サイトリンク</t></th>
+                                <th scope="col"><i class="fa fa-user-alt"></i> <t en>Participants</t><t ja>参加者</t></th>
+                            </tr>
+                          </thead>
+                          <tbody id="ctfs_table">
+                              <script>
+                              $.get("res/templates/ctf_entry.handlebars", data => {
+                                  var template = Handlebars.compile(data);
+                                  var arrayData = [];
+                                  $.get("res/data/ctfs.txt", data => {
+                                      var elements = data.split("\n");
+                                      elements.forEach(element => {
+                                          var info = element.split("|");
+                                          if (info.length == 5) {
+                                              arrayData.push({
+                                                  "year" : info[0],
+                                                  "ctf_en" : info[1],
+                                                  "ctf_ja" : info[2],
+                                                  "links_website" : info[3],
+                                                  "participants" : info[4].split(",").join(", ")
+                                              });
+                                            console.info(arrayData); //debug info
+                                          } // End of if(info)
+                                      });
+                                      $("#ctfs_table").html(template({"ctf_data" : arrayData}));
+                                      // ↑ 上の文でこのスクリプト・タグが上書きされる
+                                  });
+                              });
+                              </script>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="page4" class="page">
+            <div class="container">
+                <a id="writeups" class="anchor"></a>
+                <h2>
+                    <i class="fa fa-book"></i>
+                    <t en>CTF Writeups</t>
+                    <t ja>ライトアップ</t>
+                </h2>
+
+                <div id="writeups_list" class="list_table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"><i class="fa fa-calendar"></i> <t en>Year</t><t ja>Year</t></th>
+                                <th scope="col"><i class="fa fa-flag"></i> <t en>CTF</t><t ja>CTF</t></th>
+                                <th scope="col"><i class="fa fa-globe"></i> <t en>Site URL</t><t ja>サイトリンク</t></th>
+                                <th scope="col"><i class="fa fa-user-alt"></i> <t en>Author</t><t ja>筆者</t></th>
+                                <th scope="col"><i class="fa fa-bookmark"></i> <t en>Writeup</t><t ja>ライトアップ</t></th>
+                            </tr>
+                          </thead>
+                          <tbody id="writeups_table">
+                              <script>
+                              $.get("res/templates/writeup_entry.handlebars", data => {
+                                  var template = Handlebars.compile(data);
+                                  var arrayData = [];
+                                  $.get("res/data/writeups.txt", data => {
+                                      var elements = data.split("\n");
+                                      elements.forEach(element => {
+                                          var info = element.split("|");
+                                          if (info.length == 7) {
+                                              arrayData.push({
+                                                  "year" : info[0],
+                                                  "ctf_en" : info[1],
+                                                  "ctf_ja" : info[2],
+                                                  "links_website" : info[3],
+                                                  "author" : info[4],
+                                                  "links_writeup" : info[5],
+                                                  "title" : info[6]
+                                              });
+                                            console.info(arrayData); //debug info
+                                          } // End of if(info)
+                                      });
+                                      $("#writeups_table").html(template({"writeup_data" : arrayData}));
+                                      // ↑ 上の文でこのスクリプト・タグが上書きされる
+                                  });
+                              });
+                              </script>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="page5" class="page">
             <div class="container">
                 <a id="contact" class="anchor"></a>
                 <h2>
