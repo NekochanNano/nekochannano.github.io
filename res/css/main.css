@@ -73,6 +73,15 @@ div.page:nth-child(even) {
     margin-bottom: 0;
 }
 
+.list_table img {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+}
+
 #footer {
     background-color: #000;
     color: #eee;
