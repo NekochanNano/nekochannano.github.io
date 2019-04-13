@@ -1,1 +1,2 @@
-2019|KōsenCTF 2019|高専CTF 2019|https://kosenctf.com|Szarny,d3npä,Columbine,satto
+2019|InterKōsenCTF|インター高専CTF 2019|https://kosenctf.com|Szarny,d3npä,Columbine,satto
+2019|TJCTF|TJCTF 2019|https://tjctf.org|Szarny,d3npä,alien

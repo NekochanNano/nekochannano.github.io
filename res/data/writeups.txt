@@ -1,2 +1,5 @@
-2019|KōsenCTF 2019|高専CTF 2019|https://kosenctf.com|d3npä|https://madousho.hatenadiary.jp/entry/2019/03/25/125114|🇯🇵 KōsenCTF 之 [Pwn 350]ziplist 解法
-2019|KōsenCTF 2019|高専CTF 2019|https://kosenctf.com|satto|https://satto.hatenadiary.com/entry/InterKosenCTF2019|🇯🇵 InterKosenCTF 2019 Write-up
+2019|KōsenCTF|高専CTF|https://kosenctf.com|d3npä|https://madousho.hatenadiary.jp/entry/2019/03/25/125114|🇯🇵 KōsenCTF 之「ziplist (350pts)」の解き方
+2019|KōsenCTF|高専CTF|https://kosenctf.com|satto|https://satto.hatenadiary.com/entry/InterKosenCTF2019|🇯🇵 InterKosenCTF 2019 Write-up
+2019|TJCTF|TJCTF|https://tjctf.org|szarny|http://szarny.hatenablog.com/entry/2019/04/11/TJCTF_2019_writeup|🇯🇵 TJCTF 2019 writeup
+2019|TJCTF|TJCTF|https://tjctf.org|d3npä|https://madousho.hatenadiary.jp/entry/2019/04/10/081855|🇯🇵 TJCTF 之「Silly Sledshop (80pts)」の解き方
+2019|TJCTF|TJCTF|https://tjctf.org|d3npä|https://madousho.hatenadiary.jp/entry/2019/04/12/083227|🇯🇵 TJCTF 之「Printf Polyglot (120pts)」の解き方
